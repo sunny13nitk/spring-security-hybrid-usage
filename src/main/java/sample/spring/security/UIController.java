@@ -14,7 +14,7 @@ public class UIController
     @GetMapping("/showDetails")
     public String showDetails(@AuthenticationPrincipal Token token)
     {
-        return null;
+        return "success";
     }
 
 }
