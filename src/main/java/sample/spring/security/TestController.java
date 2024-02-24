@@ -60,6 +60,8 @@ public class TestController
 
         Map<String, String> result = new HashMap<>();
         result.put("client id", token.getClientId());
+        result.put("User Name", token.getClaimAsString(TokenClaims.USER_NAME));
+        result.put("Global SAP user id", token.getClaimAsString(TokenClaims.SAP_GLOBAL_USER_ID));
         result.put("audiences", token.getClaimAsStringList(TokenClaims.AUDIENCE).toString());
         result.put("zone id", token.getZoneId());
         result.put("family name", token.getClaimAsString(TokenClaims.FAMILY_NAME));
