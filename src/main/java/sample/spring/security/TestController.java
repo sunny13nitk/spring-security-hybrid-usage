@@ -17,6 +17,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -26,6 +27,7 @@ import com.sap.cloud.security.token.Token;
 import com.sap.cloud.security.token.TokenClaims;
 
 @RestController
+@RequestMapping("/api")
 public class TestController
 {
 
@@ -37,7 +39,7 @@ public class TestController
      */
     private final DataService dataService;
 
-    @Autowired
+
     public TestController(DataService dataService)
     {
         this.dataService = dataService;

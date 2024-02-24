@@ -10,5 +10,25 @@ applications:
     - java_buildpack
   env:
     JBP_CONFIG_OPEN_JDK_JRE: '{jre: { version: 17.0.+ }}'
+    IAS_XSUAA_XCHANGE_ENABLED: true
   services:  
     - xsuaa-authn
+# Application Router as web server
+- name: app-sshybrid
+  path: app
+  buildpacks:
+    - nodejs_buildpack
+  memory: 128M
+  routes:
+    - route: sshybrid.cfapps.eu10-004.hana.ondemand.com
+  services:
+    - xsuaa-authn
+  env:
+    destinations: >
+      [
+        {
+          "name":"token-destination",
+          "url":"https://spring-security-hybrid-usage.cfapps.eu10-004.hana.ondemand.com",
+          "forwardAuthToken": true
+        }  
+      ]    

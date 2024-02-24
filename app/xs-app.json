@@ -1,11 +1,19 @@
 {
+  "welcomeFile": "index.html",
   "authenticationMethod": "route",
   "routes": [
     {
-      "source": "^/app/(.*)$",
-      "target": "$1",
-      "localDir": ".",
+      "source": "^/api",
+      "target": "/api",
+      "destination": "token-destination",
       "authenticationType": "xsuaa",
+      "cacheControl": "no-cache, no-store, must-revalidate"
+    },
+    {
+      "source": "^/app",
+      "target": "/app",
+      "destination": "token-destination",
+      "authenticationType": "none",
       "cacheControl": "no-cache, no-store, must-revalidate"
     },
     {

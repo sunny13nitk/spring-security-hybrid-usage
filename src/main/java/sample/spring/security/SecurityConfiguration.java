@@ -48,8 +48,10 @@ public class SecurityConfiguration
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authz ->
-                        authz.requestMatchers("/sayHello").hasAuthority("Read")
-                                .requestMatchers("/comp/sayHello").hasAuthority("Read")
+                           authz.requestMatchers("/api/*").authenticated()
+                                .requestMatchers("/app/*").authenticated()    
+                                .requestMatchers("/api/sayHello").hasAuthority("Read")
+                                .requestMatchers("/api/comp/sayHello").hasAuthority("Read")
                                 .requestMatchers("/*").authenticated()
                                 .anyRequest().denyAll())
                 .oauth2ResourceServer(oauth2 -> oauth2
