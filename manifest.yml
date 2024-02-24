@@ -10,7 +10,7 @@ applications:
   instances: 1 
   memory: 896M
   routes:
-    - route: spring-security-hybrid-usage-cfapps.eu10.hana.ondemand.com
+    - route: spring-security-hybrid-usage.cfapps.eu10-004.hana.ondemand.com
   path: target/spring-security-hybrid-usage.jar
   buildpacks:
     - java_buildpack
