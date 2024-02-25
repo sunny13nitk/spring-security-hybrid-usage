@@ -48,7 +48,9 @@ public class SecurityConfiguration
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authz ->
-                           authz.requestMatchers("/api/*").authenticated()
+                           authz
+                                .requestMatchers("/login/**").permitAll()
+                                .requestMatchers("/api/*").authenticated()
                                 .requestMatchers("/app/*").authenticated()    
                                 .requestMatchers("/api/sayHello").hasAuthority("Read")
                                 .requestMatchers("/api/comp/sayHello").hasAuthority("Read")
