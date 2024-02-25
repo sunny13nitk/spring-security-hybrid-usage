@@ -13,7 +13,7 @@
       "source": "^/app",
       "target": "/app",
       "destination": "token-destination",
-      "authenticationType": "none",
+      "authenticationType": "xsuaa",
       "cacheControl": "no-cache, no-store, must-revalidate"
     },
     {
