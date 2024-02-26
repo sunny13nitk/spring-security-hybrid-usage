@@ -51,7 +51,8 @@ public class SecurityConfiguration
                            authz
                                 .requestMatchers("/login/**").permitAll()
                                 .requestMatchers("/api/*").authenticated()
-                                .requestMatchers("/app/*").authenticated()    
+                                .requestMatchers("/app/*").authenticated()   
+                                .requestMatchers("/app/token").hasAuthority("Admin") 
                                 .requestMatchers("/api/sayHello").hasAuthority("Read")
                                 .requestMatchers("/api/comp/sayHello").hasAuthority("Read")
                                 .requestMatchers("/*").authenticated()

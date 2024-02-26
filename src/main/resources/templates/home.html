@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>My App</title>
+    <!-- Metro 4 -->
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro-all.min.css">
+    <title>Java 17 Super App</title>
+</head>
+
+<body>
+
+    <div class="remark secondary">
+        <h6 style="color: #706E6A"> Java 17 Spring Boot Super App : XSUAA Security, Hana HDI, Destination Service demo
+        </h6>
+    </div>
+
+    <div class="row" style="padding-top: -10px; padding-left: 10px; padding-right: 10px; padding-bottom: 10px">
+
+        <table class="table compact striped">
+            <thead>
+                <tr>
+                    <th style="text-align: center;">Property</th>
+                    <th style="text-align: center;">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+                    <td style="text-align: center; color: #5D6A81; font-weight: bolder;"> View token Details - Admin
+                        Role
+                    </td>
+                    </td>
+                    <td style="text-align: center;; color: #81745D; font-weight: bolder;">
+                        <a href="#" th:href="@{/app/token}">View</a>
+                    </td>
+
+
+                </tr>
+
+                <tr>
+
+                    <td style="text-align: center; color: #5D6A81; font-weight: bolder;"> Read Sensitive Data - Read
+                        Role
+                    </td>
+                    </td>
+                    <td style="text-align: center;; color: #81745D; font-weight: bolder;">
+                        <a href="#" th:href="@{/app/read}">View</a>
+                    </td>
+
+
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
+
+    <!-- Metro 4 -->
+    <script src="https://cdn.metroui.org.ua/v4.3.2/js/metro.min.js"></script>
+</body>
+
+</html>

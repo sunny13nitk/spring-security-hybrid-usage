@@ -15,6 +15,10 @@
     {
       "name": "$XSAPPNAME.Read",
       "description": "Read Permissions."
+    },
+    {
+      "name": "$XSAPPNAME.Admin",
+      "description": "Admin Permissions."
     }
   ],
   "role-templates": [
@@ -24,6 +28,13 @@
       "scope-references": [
         "$XSAPPNAME.Read"
       ]
+    },
+    {
+      "name": "Admin",
+      "description": "Administrator",
+      "scope-references": [
+        "$XSAPPNAME.Admin"
+      ]
     }
   ],
   "role-collections": [
@@ -32,6 +43,13 @@
       "description": "Viewer (read)",
       "role-template-references": [
         "$XSAPPNAME.Viewer"
+      ]
+    },
+    {
+      "name": "XSUAA-Admin",
+      "description": "Administrator (admin)",
+      "role-template-references": [
+        "$XSAPPNAME.Admin"
       ]
     }
   ],
