@@ -30,6 +30,13 @@
 		<java.version>17</java.version>
 		<sap.cloud.security.version>3.3.4</sap.cloud.security.version>
 		<apache.httpclient.version>4.5.14</apache.httpclient.version>
+
+		<!-- CDS Properties -->
+		<cds.services.version>2.6.1</cds.services.version>
+		<cloud.sdk.version>5.4.0</cloud.sdk.version>
+		<cds.install-cdsdk.version>7.6.1</cds.install-cdsdk.version>
+		<!-- CDS Properties -->
+
 	</properties>
 
 	<dependencyManagement>
@@ -45,6 +52,25 @@
 	</dependencyManagement>
 
     <dependencies>
+
+	    <!-- CDS SERVICES -->
+		<dependency>
+			<groupId>com.sap.cds</groupId>
+			<artifactId>cds-services-bom</artifactId>
+			<version>${cds.services.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+
+		<!-- CLOUD SDK -->
+		<dependency>
+			<groupId>com.sap.cloud.sdk</groupId>
+			<artifactId>sdk-modules-bom</artifactId>
+			<version>${cloud.sdk.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -90,11 +116,60 @@
 	<build>
 		<finalName>${project.artifactId}</finalName>
 		<plugins>
+			<!-- JAVA VERSION -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.12.1</version>
+				<configuration>
+					<release>${jdk.version}</release>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+
+			<!-- MAKE SPRING BOOT PLUGIN RUNNABLE FROM ROOT -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
 			</plugin>
-						
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>3.2.5</version>
+			</plugin>
+
+			<!-- POM FLATTENING FOR CI FRIENDLY VERSIONS -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>flatten-maven-plugin</artifactId>
+				<version>1.6.0</version>
+				<configuration>
+					<updatePomFile>true</updatePomFile>
+					<flattenMode>resolveCiFriendliesOnly</flattenMode>
+				</configuration>
+				<executions>
+					<execution>
+						<id>flatten</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>flatten</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>flatten.clean</id>
+						<phase>clean</phase>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			
 		</plugins>
 	</build>
 </project>
