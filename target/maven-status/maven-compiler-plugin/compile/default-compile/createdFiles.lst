@@ -1,8 +1,8 @@
-sample\spring\security\SecurityConfiguration$MyCustomHybridTokenAuthenticationConverter.class
-sample\spring\security\TestController.class
-sample\spring\security\model\pojos\TY_TokenDetails.class
-sample\spring\security\UIController.class
-sample\spring\security\DataService.class
-sample\spring\security\SecurityConfiguration.class
-sample\spring\security\Application.class
-sample\spring\security\SecurityConfiguration$MyCustomIasTokenAuthenticationConverter.class
+sample/spring/security/SecurityConfiguration.class
+sample/spring/security/Application.class
+sample/spring/security/SecurityConfiguration$MyCustomHybridTokenAuthenticationConverter.class
+sample/spring/security/TestController.class
+sample/spring/security/SecurityConfiguration$MyCustomIasTokenAuthenticationConverter.class
+sample/spring/security/model/pojos/TY_TokenDetails.class
+sample/spring/security/UIController.class
+sample/spring/security/DataService.class
